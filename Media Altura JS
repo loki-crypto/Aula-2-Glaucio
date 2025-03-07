@@ -1,0 +1,35 @@
+let totalHomens = 0;
+let totalMulheres = 0;
+let somaAlturaHomens = 0;
+let maiorAltura = -Infinity;
+let menorAltura = Infinity;
+
+for (let i = 1; i <= 15; i++) {
+    console.log(`Pessoa ${i}`);
+
+    let altura = parseFloat(prompt("Digite a altura (em metros): "));
+    let genero = prompt("Digite o gênero (M para masculino, F para feminino): ").toUpperCase();
+
+    if (genero === 'M') {
+        totalHomens++;
+        somaAlturaHomens += altura;
+    } else if (genero === 'F') {
+        totalMulheres++;
+    }
+
+    if (altura > maiorAltura) {
+        maiorAltura = altura;
+    }
+    if (altura < menorAltura) {
+        menorAltura = altura;
+    }
+}
+
+let mediaAlturaHomens = totalHomens > 0 ? somaAlturaHomens / totalHomens : 0;
+
+console.log("\nResultados:");
+console.log("Total de homens: " + totalHomens);
+console.log("Total de mulheres: " + totalMulheres);
+console.log("Média da altura dos homens: " + mediaAlturaHomens.toFixed(2) + " metros");
+console.log("Maior altura do grupo: " + maiorAltura.toFixed(2) + " metros");
+console.log("Menor altura do grupo: " + menorAltura.toFixed(2) + " metros");
